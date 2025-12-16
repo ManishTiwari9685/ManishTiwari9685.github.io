@@ -1257,9 +1257,20 @@
     </div>
 
             <div class="form-group">
-              <l1247
-                abel for="city" class="form-label">City *</label>
+               <!-- PIN/Postal Code -->
+            <div class="form-group">
+              <label for="pincode" class="form-label">PIN Code *</label>
               <input
+                type="text"
+                id="pincode"
+                name="pincode"
+                class="form-control"
+                placeholder="Enter your 6-digit PIN"
+                maxlength="6"
+                required
+              />
+            </div>
+              <label for="city" class="form-label">City *</label>              <input
                 type="text"
                 id="city"
                 name="city"
