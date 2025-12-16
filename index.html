@@ -260,6 +260,11 @@
       --color-brown-600-rgb: 94, 82, 64;
       --color-teal-500-rgb: 33, 128, 141;
       --color-slate-900-rgb: 19, 52, 59;
+      --color-slate-500-rgb: 98, 108, 113;
+      --color-red-500-rgb: 192, 21, 47;
+      --color-red-400-rgb: 255, 84, 89;
+      --color-orange-500-rgb: 168, 75, 47;
+      --color-orange-400-rgb: 230, 129, 97;
 
       --color-background: var(--color-cream-50);
       --color-surface: var(--color-cream-100);
@@ -745,7 +750,7 @@
       margin-bottom: 2px;
     }
 
-    /* Form */
+    /* Form base styles */
     .form-shell {
       background: var(--color-surface);
       border-radius: 18px;
@@ -826,6 +831,24 @@
       background-color: var(--color-cream-100);
     }
 
+    /* New responsive grid for enquiry form */
+    .enquiry-form {
+      margin-top: 12px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 20px;
+    }
+    .form-group--full {
+      grid-column: 1 / -1;
+    }
+    .form-actions {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
     .status {
       display: inline-flex;
       align-items: center;
@@ -892,6 +915,38 @@
     @font-face {
       font-family: 'FKGroteskNeue';
       src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .card {
+        margin-inline: -8px;
+        border-radius: 0;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
     }
   </style>
 </head>
@@ -1136,101 +1191,143 @@
       </div>
     </section>
 
-    <!-- ENQUIRY FORM -->
-    <section id="enquiry">
-      <div class="section-header">
-        <div>
-          <h2>Partner With THE EVENT HUB</h2>
-          <p>
-            Share your event requirements and we will respond with a structured
-            proposal and availability check.
-          </p>
-        </div>
-      </div>
-
-      <div class="about-layout">
-        <div class="form-shell">
-          <div class="form-shell-inner">
-            <form id="eventForm">
-              <div class="form-group">
-                <label class="form-label" for="purpose">
-                  I am contacting THE EVENT HUB for
-                </label>
-                <select id="purpose" name="purpose" class="form-control" required>
-                  <option value="">Select primary purpose</option>
-                  <option value="event_enquiry">Planning an upcoming event</option>
-                  <option value="career_enquiry">Career / collaboration opportunity</option>
-                  <option value="vendor_partnership">Vendor or venue partnership</option>
-                  <option value="other">Other professional interaction</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="fullName">Full Name</label>
-                <input id="fullName" name="fullName" class="form-control" type="text"
-                       placeholder="Enter your full name" required />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="email">Email Address</label>
-                <input id="email" name="email" class="form-control" type="email"
-                       placeholder="name@organisation.com" required />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="phone">Contact Number</label>
-                <input id="phone" name="phone" class="form-control" type="tel"
-                       placeholder="+91‑XXXXXXXXXX" required />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="eventType">
-                  Type of Event / Career Track
-                </label>
-                <input id="eventType" name="eventType" class="form-control" type="text"
-                       placeholder="e.g. Wedding, Birthday, Festival, Corporate, Internship, Full‑time" />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="eventDate">
-                  Preferred Event Date (if applicable)
-                </label>
-                <input id="eventDate" name="eventDate" class="form-control" type="date" />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="city">
-                  City / Preferred Location
-                </label>
-                <input id="city" name="city" class="form-control" type="text"
-                       placeholder="City and state" />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="budget">
-                  Indicative Budget Range (Optional)
-                </label>
-                <input id="budget" name="budget" class="form-control" type="text"
-                       placeholder="e.g. ₹5–7 Lakhs, ₹10–15 Lakhs, as per brief" />
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="message">
-                  Brief Overview of Your Requirement
-                </label>
-                <textarea id="message" name="message" class="form-control"
-                          placeholder="Share key details about the event or career opportunity so that we can respond precisely."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn--primary btn--pill" id="submitButton">
-                Submit To THE EVENT HUB
-              </button>
-
-              <div id="formStatus" aria-live="polite" style="margin-top:8px;"></div>
-            </form>
+    <!-- ENQUIRY FORM (UPDATED) -->
+    <section id="enquiry" class="card">
+      <div class="card__body">
+        <div class="section-header">
+          <div>
+            <h2>Make An Enquiry</h2>
+            <p>Share a few details and the team will reach out with a customised event plan.</p>
           </div>
         </div>
 
+        <form id="eventForm" class="enquiry-form" autocomplete="on">
+          <div class="form-grid">
+            <!-- Name -->
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
+
+            <!-- Mobile -->
+            <div class="form-group">
+              <label for="mobile" class="form-label">Mobile Number *</label>
+              <input
+                type="tel"
+                id="mobile"
+                name="mobile"
+                class="form-control"
+                placeholder="10‑digit mobile number"
+                pattern="[6-9][0-9]{9}"
+                maxlength="10"
+                required
+              />
+            </div>
+
+            <!-- PIN + City (auto) -->
+            <div class="form-group">
+              <label for="pincode" class="form-label">PIN Code *</label>
+              <input
+                type="text"
+                id="pincode"
+                name="pincode"
+                class="form-control"
+                placeholder="e.g. 110001"
+                pattern="[0-9]{6}"
+                maxlength="6"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="city" class="form-label">City *</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                class="form-control"
+                placeholder="City will be auto‑filled from PIN"
+                required
+                readonly
+              />
+            </div>
+
+            <!-- Type of Event -->
+            <div class="form-group">
+              <label for="eventType" class="form-label">Type of Event *</label>
+              <select
+                id="eventType"
+                name="eventType"
+                class="form-control"
+                required
+              >
+                <option value="" disabled selected>Select type of event</option>
+                <option value="wedding">Wedding</option>
+                <option value="birthday">Birthday</option>
+                <option value="festival">Festival</option>
+                <option value="corporate">Corporate</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+
+            <!-- If Others -->
+            <div class="form-group" id="otherEventWrapper" style="display:none;">
+              <label for="otherEvent" class="form-label">Please describe your event *</label>
+              <input
+                type="text"
+                id="otherEvent"
+                name="otherEvent"
+                class="form-control"
+                placeholder="Anniversary, baby shower, concert, etc."
+              />
+            </div>
+
+            <!-- Message -->
+            <div class="form-group form-group--full">
+              <label for="message" class="form-label">Additional Details</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-control"
+                placeholder="Tell us about dates, venue preferences, guest count and any must‑have experiences."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary btn--pill" id="submitButton">
+              Submit Enquiry
+            </button>
+          </div>
+
+          <div id="formStatus" aria-live="polite" style="margin-top:8px;"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CAREERS / INFO -->
+    <section>
+      <div class="about-layout">
         <div>
           <h3 id="careers">Careers &amp; Professional Opportunities</h3>
           <p>
@@ -1245,9 +1342,8 @@
             <li>Content, photography &amp; digital storytelling</li>
           </ul>
           <p style="font-size:13px; color:var(--color-text-secondary);">
-            To be considered for career opportunities, please select
-            <strong>&ldquo;Career / collaboration opportunity&rdquo;</strong> in the
-            form and attach a concise summary of your profile in the message box.
+            To be considered for career opportunities, please share your portfolio or
+            brief profile in the enquiry message box.
           </p>
         </div>
       </div>
@@ -1267,91 +1363,143 @@
   </footer>
 
   <script>
-    (function () {
-      const yearSpan = document.getElementById('yearSpan');
-      yearSpan.textContent = new Date().getFullYear().toString();
+    // Year in footer
+    const yearSpan = document.getElementById('yearSpan');
+    yearSpan.textContent = new Date().getFullYear().toString();
 
-      const form = document.getElementById('eventForm');
-      const statusEl = document.getElementById('formStatus');
-      const submitBtn = document.getElementById('submitButton');
+    // Basic Indian PIN -> City map (sample, extend as needed)
+    const pinCityMap = {
+      "110001": "New Delhi",
+      "400001": "Mumbai",
+      "560001": "Bengaluru",
+      "600001": "Chennai",
+      "700001": "Kolkata",
+      "380001": "Ahmedabad",
+      "500001": "Hyderabad",
+      "302001": "Jaipur",
+      "226001": "Lucknow",
+      "380015": "Ahmedabad (Satellite)"
+    };
 
-      // TODO: Replace this placeholder with your deployed Google Apps Script web app URL.
-      // Example: const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx.../exec';
-      const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby527xYCYsLBCmGY-gsQQ8o9F2-asdoiZARqHK-zuoAJAT_N_8RegprdyZUlWbHiF_YPg/exec';
+    const pinInput = document.getElementById("pincode");
+    const cityInput = document.getElementById("city");
+    const eventTypeSelect = document.getElementById("eventType");
+    const otherEventWrapper = document.getElementById("otherEventWrapper");
+    const otherEventInput = document.getElementById("otherEvent");
+    const form = document.getElementById('eventForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitButton');
 
-      function setStatus(message, type) {
-        statusEl.innerHTML = '';
-        if (!message) return;
-        const div = document.createElement('div');
-        div.className = 'status ' + (type === 'error' ? 'status--error' : 'status--success');
-        div.textContent = message;
-        statusEl.appendChild(div);
+    // Auto-fill city when 6 digits entered
+    pinInput.addEventListener("input", function () {
+      const pin = this.value.trim();
+      if (pin.length === 6 && /^[0-9]{6}$/.test(pin)) {
+        if (pinCityMap[pin]) {
+          cityInput.value = pinCityMap[pin];
+          cityInput.readOnly = true;
+        } else {
+          cityInput.value = "";
+          cityInput.placeholder = "City not found, please type manually";
+          cityInput.readOnly = false;
+        }
+      } else {
+        cityInput.value = "";
+        cityInput.placeholder = "City will be auto‑filled from PIN";
+        cityInput.readOnly = true;
+      }
+    });
+
+    // Show/hide "Others" text field
+    eventTypeSelect.addEventListener("change", function () {
+      if (this.value === "others") {
+        otherEventWrapper.style.display = "block";
+        otherEventInput.setAttribute("required", "required");
+      } else {
+        otherEventWrapper.style.display = "none";
+        otherEventInput.removeAttribute("required");
+        otherEventInput.value = "";
+      }
+    });
+
+    // Configure your Apps Script URL here
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby527xYCYsLBCmGY-gsQQ8o9F2-asdoiZARqHK-zuoAJAT_N_8RegprdyZUlWbHiF_YPg/exec';
+
+    function setStatus(message, type) {
+      statusEl.innerHTML = '';
+      if (!message) return;
+      const div = document.createElement('div');
+      div.className = 'status ' + (type === 'error' ? 'status--error' : 'status--success');
+      div.textContent = message;
+      statusEl.appendChild(div);
+    }
+
+    // Submit handler
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const payload = {
+        timestamp: new Date().toISOString(),
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        mobile: document.getElementById('mobile').value.trim(),
+        pincode: document.getElementById('pincode').value.trim(),
+        city: document.getElementById('city').value.trim(),
+        eventType: document.getElementById('eventType').value,
+        otherEvent: otherEventInput.value.trim(),
+        message: document.getElementById('message').value.trim()
+      };
+
+      if (!payload.name || !payload.email || !payload.mobile || !payload.city || !payload.pincode || !payload.eventType) {
+        setStatus('Please complete all required fields before submitting.', 'error');
+        return;
+      }
+      if (payload.eventType === 'others' && !payload.otherEvent) {
+        setStatus('Please describe your event under "Others".', 'error');
+        return;
       }
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+      if (!GOOGLE_APPS_SCRIPT_URL) {
+        console.table(payload);
+        setStatus(
+          'Your details have been captured locally. Please connect this form to your Google Sheet endpoint to enable live data storage.',
+          'success'
+        );
+        return;
+      }
 
-        const formData = {
-          timestamp: new Date().toISOString(),
-          purpose: document.getElementById('purpose').value.trim(),
-          fullName: document.getElementById('fullName').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          phone: document.getElementById('phone').value.trim(),
-          eventType: document.getElementById('eventType').value.trim(),
-          eventDate: document.getElementById('eventDate').value,
-          city: document.getElementById('city').value.trim(),
-          budget: document.getElementById('budget').value.trim(),
-          message: document.getElementById('message').value.trim()
-        };
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      setStatus('', 'success');
 
-        if (!formData.purpose || !formData.fullName || !formData.email || !formData.phone) {
-          setStatus('Please complete all required fields before submitting.', 'error');
-          return;
-        }
-
-        if (!GOOGLE_APPS_SCRIPT_URL) {
-          console.warn('No Google Apps Script URL configured. Data will be logged in the browser only.');
-          console.table(formData);
+      fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(function () {
           setStatus(
-            'Your details have been captured locally. Please connect this form to your Google Sheet endpoint to enable live data storage.',
+            'Thank you. Your details have been submitted to THE EVENT HUB. We will connect with you shortly.',
             'success'
           );
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        setStatus('', 'success');
-
-        fetch(GOOGLE_APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
+          form.reset();
+          cityInput.readOnly = true;
+          cityInput.placeholder = "City will be auto‑filled from PIN";
+          otherEventWrapper.style.display = "none";
         })
-          .then(function () {
-            setStatus(
-              'Thank you. Your details have been submitted to THE EVENT HUB. We will connect with you shortly.',
-              'success'
-            );
-            form.reset();
-          })
-          .catch(function () {
-            setStatus(
-              'We could not confirm submission at the moment. Please try again or contact us directly on WhatsApp.',
-              'error'
-            );
-          })
-          .finally(function () {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit To THE EVENT HUB';
-          });
-      });
-    })();
+        .catch(function () {
+          setStatus(
+            'We could not confirm submission at the moment. Please try again or contact us directly on WhatsApp.',
+            'error'
+          );
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Enquiry';
+        });
+    });
   </script>
 </body>
 </html>
-
-
