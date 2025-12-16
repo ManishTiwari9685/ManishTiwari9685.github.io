@@ -1,68 +1,1357 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact / Enquiry</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE EVENT HUB</title>
+
+  <style>
+    /* ====== PERPLEXITY DESIGN SYSTEM (as provided) ====== */
+    :root {
+      /* Primitive Color Tokens */
+      --color-white: rgba(255, 255, 255, 1);
+      --color-black: rgba(0, 0, 0, 1);
+      --color-cream-50: rgba(252, 252, 249, 1);
+      --color-cream-100: rgba(255, 255, 253, 1);
+      --color-gray-200: rgba(245, 245, 245, 1);
+      --color-gray-300: rgba(167, 169, 169, 1);
+      --color-gray-400: rgba(119, 124, 124, 1);
+      --color-slate-500: rgba(98, 108, 113, 1);
+      --color-brown-600: rgba(94, 82, 64, 1);
+      --color-charcoal-700: rgba(31, 33, 33, 1);
+      --color-charcoal-800: rgba(38, 40, 40, 1);
+      --color-slate-900: rgba(19, 52, 59, 1);
+      --color-teal-300: rgba(50, 184, 198, 1);
+      --color-teal-400: rgba(45, 166, 178, 1);
+      --color-teal-500: rgba(33, 128, 141, 1);
+      --color-teal-600: rgba(29, 116, 128, 1);
+      --color-teal-700: rgba(26, 104, 115, 1);
+      --color-teal-800: rgba(41, 150, 161, 1);
+      --color-red-400: rgba(255, 84, 89, 1);
+      --color-red-500: rgba(192, 21, 47, 1);
+      --color-orange-400: rgba(230, 129, 97, 1);
+      --color-orange-500: rgba(168, 75, 47, 1);
+
+      /* RGB versions for opacity control */
+      --color-brown-600-rgb: 94, 82, 64;
+      --color-teal-500-rgb: 33, 128, 141;
+      --color-slate-900-rgb: 19, 52, 59;
+      --color-slate-500-rgb: 98, 108, 113;
+      --color-red-500-rgb: 192, 21, 47;
+      --color-red-400-rgb: 255, 84, 89;
+      --color-orange-500-rgb: 168, 75, 47;
+      --color-orange-400-rgb: 230, 129, 97;
+
+      /* Background color tokens (Light Mode) */
+      --color-bg-1: rgba(59, 130, 246, 0.08);
+      --color-bg-2: rgba(245, 158, 11, 0.08);
+      --color-bg-3: rgba(34, 197, 94, 0.08);
+      --color-bg-4: rgba(239, 68, 68, 0.08);
+      --color-bg-5: rgba(147, 51, 234, 0.08);
+      --color-bg-6: rgba(249, 115, 22, 0.08);
+      --color-bg-7: rgba(236, 72, 153, 0.08);
+      --color-bg-8: rgba(6, 182, 212, 0.08);
+
+      /* Semantic Color Tokens (Light Mode) */
+      --color-background: var(--color-cream-50);
+      --color-surface: var(--color-cream-100);
+      --color-text: var(--color-slate-900);
+      --color-text-secondary: var(--color-slate-500);
+      --color-primary: var(--color-teal-500);
+      --color-primary-hover: var(--color-teal-600);
+      --color-primary-active: var(--color-teal-700);
+      --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+      --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-btn-primary-text: var(--color-cream-50);
+      --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-error: var(--color-red-500);
+      --color-success: var(--color-teal-500);
+      --color-warning: var(--color-orange-500);
+      --color-info: var(--color-slate-500);
+      --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+      --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+      /* Common style patterns */
+      --focus-ring: 0 0 0 3px var(--color-focus-ring);
+      --focus-outline: 2px solid var(--color-primary);
+      --status-bg-opacity: 0.15;
+      --status-border-opacity: 0.25;
+      --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+      /* RGB versions for opacity control */
+      --color-success-rgb: 33, 128, 141;
+      --color-error-rgb: 192, 21, 47;
+      --color-warning-rgb: 168, 75, 47;
+      --color-info-rgb: 98, 108, 113;
+
+      /* Typography */
+      --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, monospace;
+      --font-size-xs: 11px;
+      --font-size-sm: 12px;
+      --font-size-base: 14px;
+      --font-size-md: 14px;
+      --font-size-lg: 16px;
+      --font-size-xl: 18px;
+      --font-size-2xl: 20px;
+      --font-size-3xl: 24px;
+      --font-size-4xl: 30px;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 550;
+      --font-weight-bold: 600;
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+      --letter-spacing-tight: -0.01em;
+
+      /* Spacing */
+      --space-0: 0;
+      --space-1: 1px;
+      --space-2: 2px;
+      --space-4: 4px;
+      --space-6: 6px;
+      --space-8: 8px;
+      --space-10: 10px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+
+      /* Border Radius */
+      --radius-sm: 6px;
+      --radius-base: 8px;
+      --radius-md: 10px;
+      --radius-lg: 12px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+        0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+        0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+      /* Animation */
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* Layout */
+      --container-sm: 640px;
+      --container-md: 768px;
+      --container-lg: 1024px;
+      --container-xl: 1280px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-gray-400-rgb: 119, 124, 124;
+        --color-teal-300-rgb: 50, 184, 198;
+        --color-gray-300-rgb: 167, 169, 169;
+        --color-gray-200-rgb: 245, 245, 245;
+
+        --color-bg-1: rgba(29, 78, 216, 0.15);
+        --color-bg-2: rgba(180, 83, 9, 0.15);
+        --color-bg-3: rgba(21, 128, 61, 0.15);
+        --color-bg-4: rgba(185, 28, 28, 0.15);
+        --color-bg-5: rgba(107, 33, 168, 0.15);
+        --color-bg-6: rgba(194, 65, 12, 0.15);
+        --color-bg-7: rgba(190, 24, 93, 0.15);
+        --color-bg-8: rgba(8, 145, 178, 0.15);
+
+        --color-background: var(--color-charcoal-700);
+        --color-surface: var(--color-charcoal-800);
+        --color-text: var(--color-gray-200);
+        --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+        --color-primary: var(--color-teal-300);
+        --color-primary-hover: var(--color-teal-400);
+        --color-primary-active: var(--color-teal-800);
+        --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+        --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+        --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+        --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+        --color-error: var(--color-red-400);
+        --color-success: var(--color-teal-300);
+        --color-warning: var(--color-orange-400);
+        --color-info: var(--color-gray-300);
+        --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+        --color-btn-primary-text: var(--color-slate-900);
+        --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+        --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+        --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+        --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+        --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+        --focus-ring: 0 0 0 3px var(--color-focus-ring);
+        --focus-outline: 2px solid var(--color-primary);
+        --status-bg-opacity: 0.15;
+        --status-border-opacity: 0.25;
+
+        --color-success-rgb: var(--color-teal-300-rgb);
+        --color-error-rgb: var(--color-red-400-rgb);
+        --color-warning-rgb: var(--color-orange-400-rgb);
+        --color-info-rgb: var(--color-gray-300-rgb);
+      }
+    }
+
+    [data-color-scheme="dark"] {
+      --color-gray-400-rgb: 119, 124, 124;
+      --color-teal-300-rgb: 50, 184, 198;
+      --color-gray-300-rgb: 167, 169, 169;
+      --color-gray-200-rgb: 245, 245, 245;
+
+      --color-bg-1: rgba(29, 78, 216, 0.15);
+      --color-bg-2: rgba(180, 83, 9, 0.15);
+      --color-bg-3: rgba(21, 128, 61, 0.15);
+      --color-bg-4: rgba(185, 28, 28, 0.15);
+      --color-bg-5: rgba(107, 33, 168, 0.15);
+      --color-bg-6: rgba(194, 65, 12, 0.15);
+      --color-bg-7: rgba(190, 24, 93, 0.15);
+      --color-bg-8: rgba(8, 145, 178, 0.15);
+
+      --color-background: var(--color-charcoal-700);
+      --color-surface: var(--color-charcoal-800);
+      --color-text: var(--color-gray-200);
+      --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+      --color-primary: var(--color-teal-300);
+      --color-primary-hover: var(--color-teal-400);
+      --color-primary-active: var(--color-teal-800);
+      --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+      --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+      --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+      --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+      --color-error: var(--color-red-400);
+      --color-success: var(--color-teal-300);
+      --color-warning: var(--color-orange-400);
+      --color-info: var(--color-gray-300);
+      --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+      --color-btn-primary-text: var(--color-slate-900);
+      --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
+      --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+      --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+      --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+      --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+      --focus-ring: 0 0 0 3px var(--color-focus-ring);
+      --focus-outline: 2px solid var(--color-primary);
+      --status-bg-opacity: 0.15;
+      --status-border-opacity: 0.25;
+
+      --color-success-rgb: var(--color-teal-300-rgb);
+      --color-error-rgb: var(--color-red-400-rgb);
+      --color-warning-rgb: var(--color-orange-400-rgb);
+      --color-info-rgb: var(--color-gray-300-rgb);
+    }
+
+    [data-color-scheme="light"] {
+      --color-brown-600-rgb: 94, 82, 64;
+      --color-teal-500-rgb: 33, 128, 141;
+      --color-slate-900-rgb: 19, 52, 59;
+
+      --color-background: var(--color-cream-50);
+      --color-surface: var(--color-cream-100);
+      --color-text: var(--color-slate-900);
+      --color-text-secondary: var(--color-slate-500);
+      --color-primary: var(--color-teal-500);
+      --color-primary-hover: var(--color-teal-600);
+      --color-primary-active: var(--color-teal-700);
+      --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+      --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+      --color-btn-primary-text: var(--color-cream-50);
+      --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+      --color-error: var(--color-red-500);
+      --color-success: var(--color-teal-500);
+      --color-warning: var(--color-orange-500);
+      --color-info: var(--color-slate-500);
+      --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+
+      --color-success-rgb: var(--color-teal-500-rgb);
+      --color-error-rgb: var(--color-red-500-rgb);
+      --color-warning-rgb: var(--color-orange-500-rgb);
+      --color-info-rgb: var(--color-slate-500-rgb);
+    }
+
+    html {
+      font-size: var(--font-size-base);
+      font-family: var(--font-family-base);
+      line-height: var(--line-height-normal);
+      color: var(--color-text);
+      background-color: var(--color-background);
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, rgba(33,128,141,0.18), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(94,82,64,0.16), transparent 55%);
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      margin: 0;
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-tight);
+      color: var(--color-text);
+      letter-spacing: var(--letter-spacing-tight);
+    }
+    h1 { font-size: var(--font-size-4xl); }
+    h2 { font-size: var(--font-size-3xl); }
+    h3 { font-size: var(--font-size-2xl); }
+
+    p { margin: 0 0 var(--space-16) 0; }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-standard);
+    }
+    a:hover { color: var(--color-primary-hover); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-8) var(--space-16);
+      border-radius: var(--radius-base);
+      font-size: var(--font-size-base);
+      font-weight: 500;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-standard);
+      border: none;
+      text-decoration: none;
+      position: relative;
+    }
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring);
+    }
+    .btn--primary {
+      background: var(--color-primary);
+      color: var(--color-btn-primary-text);
+    }
+    .btn--primary:hover { background: var(--color-primary-hover); }
+    .btn--primary:active { background: var(--color-primary-active); }
+
+    .btn--outline {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+    .btn--outline:hover { background: var(--color-secondary); }
+
+    .btn--pill { border-radius: var(--radius-full); }
+
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+      max-width: var(--container-xl);
+    }
+
+    header.site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to right,
+        rgba(252,252,249,0.92),
+        rgba(255,255,253,0.92)
+      );
+      border-bottom: 1px solid rgba(94,82,64,0.12);
+    }
+    @media (prefers-color-scheme: dark) {
+      header.site-header {
+        background: linear-gradient(
+          to right,
+          rgba(31,33,33,0.92),
+          rgba(38,40,40,0.92)
+        );
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: conic-gradient(
+        from 210deg,
+        rgba(33,128,141,0.9),
+        rgba(230,129,97,0.9),
+        rgba(192,21,47,0.9),
+        rgba(33,128,141,0.9)
+      );
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.6), var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-cream-50);
+      font-weight: var(--font-weight-bold);
+      font-size: 16px;
+    }
+    .brand-text-main {
+      font-weight: var(--font-weight-semibold);
+      font-size: 18px;
+      letter-spacing: 0.08em;
+    }
+    .brand-text-sub {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    nav.site-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+    nav.site-nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--color-text-secondary);
+    }
+    nav.site-nav a:hover {
+      background: var(--color-secondary);
+      color: var(--color-text);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: center;
+      padding: 32px 20px 40px;
+      animation: fadeInUp 600ms var(--ease-standard) 60ms both;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--color-bg-8);
+      color: var(--color-text-secondary);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+    }
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 4px rgba(33,128,141,0.15);
+    }
+
+    .hero h1 span.highlight {
+      background: linear-gradient(120deg, var(--color-primary), var(--color-orange-400));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      max-width: 38rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+    .badge {
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(94,82,64,0.15);
+      background: rgba(255,255,255,0.7);
+    }
+    @media (prefers-color-scheme: dark) {
+      .badge {
+        background: rgba(31,33,33,0.9);
+      }
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 260px;
+      padding: 18px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(33,128,141,0.16), transparent 60%),
+                  radial-gradient(circle at bottom, rgba(230,129,97,0.16), transparent 60%);
+      border: 1px solid rgba(94,82,64,0.16);
+      overflow: hidden;
+    }
+    .orbit-ring {
+      position: absolute;
+      inset: 12px;
+      border-radius: 999px;
+      border: 1px dashed rgba(255,255,255,0.5);
+      opacity: 0.55;
+    }
+    .orbit-pill {
+      position: absolute;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(252,252,249,0.92);
+      color: var(--color-slate-900);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-md);
+      animation: float 6s ease-in-out infinite alternate;
+    }
+    .orbit-pill span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+    .orbit-pill.wedding { top: 18%; left: 8%; }
+    .orbit-pill.birthday { bottom: 20%; right: 10%; animation-delay: 0.6s; }
+    .orbit-pill.corporate { top: 50%; right: 15%; animation-delay: 1s; }
+
+    .hero-stat-card {
+      position: absolute;
+      inset: 26% 14% auto 14%;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(252,252,249,0.96);
+      border: 1px solid rgba(94,82,64,0.18);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .hero-stat-metric {
+      font-size: 16px;
+      font-weight: var(--font-weight-semibold);
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+
+    /* Sections */
+    section {
+      padding: 24px 20px 12px;
+      margin: 0 auto;
+      max-width: var(--container-xl);
+    }
+    .section-header {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .section-header p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin: 4px 0 0 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+    @media (min-width: 800px) {
+      .grid--three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 799px) {
+      .grid--three {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background-color: var(--color-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-card-border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform var(--duration-normal) var(--ease-standard),
+                  box-shadow var(--duration-normal) var(--ease-standard),
+                  border-color var(--duration-normal) var(--ease-standard);
+      position: relative;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(33,128,141,0.18), rgba(230,129,97,0.18));
+      opacity: 0;
+      transition: opacity var(--duration-normal) var(--ease-standard);
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(33,128,141,0.35);
+    }
+    .card:hover::before {
+      opacity: 0.15;
+    }
+    .card__body { padding: 14px; }
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .pill {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(33,128,141,0.12);
+      color: var(--color-primary);
+    }
+    .card p {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-bottom: 8px;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(19,52,59,0.04);
+      color: var(--color-text-secondary);
+    }
+
+    /* About section */
+    .about-layout {
+      display: grid;
+      gap: 18px;
+    }
+    @media (min-width: 860px) {
+      .about-layout {
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      }
+    }
+    .profile-card {
+      background: radial-gradient(circle at top left, rgba(33,128,141,0.15), transparent 60%),
+                  var(--color-surface);
+      border-radius: 18px;
+      padding: 14px 14px 16px;
+      border: 1px solid var(--color-card-border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-orange-400));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-cream-50);
+      font-size: 20px;
+      font-weight: var(--font-weight-semibold);
+      box-shadow: var(--shadow-md);
+    }
+    .profile-meta {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+    .profile-meta strong {
+      color: var(--color-text);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    @media (min-width: 520px) {
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .contact-item-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-text-secondary);
+      margin-bottom: 2px;
+    }
+
+    /* Form */
+    .form-shell {
+      background: var(--color-surface);
+      border-radius: 18px;
+      border: 1px solid var(--color-card-border);
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top left, rgba(33,128,141,0.2), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(230,129,97,0.18), transparent 55%);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+    .form-shell-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-group {
+      margin-bottom: var(--space-16);
+    }
+    .form-label {
+      display: block;
+      margin-bottom: var(--space-6);
+      font-weight: var(--font-weight-medium);
+      font-size: 12px;
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: var(--space-8) var(--space-12);
+      font-size: var(--font-size-md);
+      line-height: 1.5;
+      color: var(--color-text);
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-base);
+      transition: border-color var(--duration-fast) var(--ease-standard),
+                  box-shadow var(--duration-fast) var(--ease-standard),
+                  background-color var(--duration-fast) var(--ease-standard);
+    }
+    textarea.form-control {
+      min-height: 68px;
+      resize: vertical;
+      font-family: var(--font-family-base);
+      font-size: 13px;
+    }
+    select.form-control {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: var(--select-caret-light);
+      background-repeat: no-repeat;
+      background-position: right var(--space-12) center;
+      background-size: 16px;
+      padding-right: var(--space-32);
+    }
+    @media (prefers-color-scheme: dark) {
+      select.form-control {
+        background-image: var(--select-caret-dark);
+      }
+    }
+    [data-color-scheme="dark"] select.form-control {
+      background-image: var(--select-caret-dark);
+    }
+    [data-color-scheme="light"] select.form-control {
+      background-image: var(--select-caret-light);
+    }
+    .form-control:focus {
+      border-color: var(--color-primary);
+      outline: var(--focus-outline);
+      background-color: var(--color-cream-100);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-6) var(--space-12);
+      border-radius: var(--radius-full);
+      font-weight: var(--font-weight-medium);
+      font-size: var(--font-size-sm);
+      margin-top: 4px;
+    }
+    .status--success {
+      background-color: rgba(var(--color-success-rgb, 33,128,141), var(--status-bg-opacity));
+      color: var(--color-success);
+      border: 1px solid rgba(var(--color-success-rgb, 33,128,141), var(--status-border-opacity));
+    }
+    .status--error {
+      background-color: rgba(var(--color-error-rgb, 192,21,47), var(--status-bg-opacity));
+      color: var(--color-error);
+      border: 1px solid rgba(var(--color-error-rgb, 192,21,47), var(--status-border-opacity));
+    }
+
+    footer.site-footer {
+      padding: 18px 20px 26px;
+      border-top: 1px solid rgba(94,82,64,0.22);
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+    footer .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to   { transform: translateY(-10px); }
+    }
+
+    @font-face {
+      font-family: 'FKGroteskNeue';
+      src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+    }
+  </style>
 </head>
 <body>
-  <main class="page">
-    <section class="contact-section">
-      <h1>Get in touch</h1>
-      <form id="contactForm" class="contact-form" novalidate>
-        <div class="row">
-          <label for="name">Name<span class="req">*</span></label>
-          <input id="name" name="name" type="text" required placeholder="Your full name" />
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">EH</div>
+      <div>
+        <div class="brand-text-main">THE EVENT HUB</div>
+        <div class="brand-text-sub">Curating Moments. Designing Legacies.</div>
+      </div>
+    </div>
+    <nav class="site-nav">
+      <a href="#services">Event Solutions</a>
+      <a href="#about">Leadership</a>
+      <a href="#enquiry">Make An Enquiry</a>
+      <a href="#careers">Careers</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          End‑to‑End Experiential Event Management
+        </div>
+        <h1>
+          Intelligent orchestration for
+          <span class="highlight">weddings, birthdays, occasions and festivals</span>
+          under one trusted hub.
+        </h1>
+        <p class="hero-lead">
+          THE EVENT HUB is a full‑service experiential studio specialising in premium
+          wedding celebrations, milestone birthdays, corporate occasions and cultural
+          festivals. We translate your vision into a flawlessly managed on‑ground
+          reality.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#enquiry" class="btn btn--primary btn--pill">
+            Plan An Event With Us
+          </a>
+          <a href="#careers" class="btn btn--outline btn--pill">
+            Explore Career Opportunities
+          </a>
         </div>
 
-        <div class="row">
-          <label for="email">Email<span class="req">*</span></label>
-          <input id="email" name="email" type="email" required placeholder="name@example.com" />
+        <div class="badge-strip">
+          <span class="badge">Concept to execution ownership</span>
+          <span class="badge">Vendor ecosystem &amp; logistics</span>
+          <span class="badge">Design, décor &amp; guest experience</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit-ring"></div>
+
+        <div class="orbit-pill wedding">
+          <span class="dot"></span>
+          Signature Wedding Experiences
+        </div>
+        <div class="orbit-pill birthday">
+          <span class="dot"></span>
+          Bespoke Birthday Concepts
+        </div>
+        <div class="orbit-pill corporate">
+          <span class="dot"></span>
+          Corporate &amp; Festival Mandates
         </div>
 
-        <div class="row">
-          <label for="mobile">Mobile<span class="req">*</span></label>
-          <input id="mobile" name="mobile" type="tel" required inputmode="numeric" pattern="^\\d{10}$" placeholder="10-digit mobile number" />
+        <div class="hero-stat-card">
+          <div>
+            <div class="hero-stat-metric">Multi‑Occasion Expertise</div>
+            <div class="hero-stat-label">Weddings • Birthdays • Social &amp; Cultural Events</div>
+          </div>
+          <div>
+            <div class="hero-stat-label">Managed By</div>
+            <div class="hero-stat-metric">Manish&nbsp;Tiwari</div>
+            <div class="hero-stat-label">Founder &amp; Chief Executive Officer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-header">
+        <div>
+          <h2>Integrated Event Management Portfolio</h2>
+          <p>
+            We manage the complete lifecycle of every engagement &mdash; from initial
+            discovery and creative direction to vendor coordination, on‑site leadership
+            and post‑event debrief.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid--three">
+        <article class="card">
+          <div class="card__body">
+            <div class="card-title-row">
+              <h3>Wedding &amp; Engagement Experiences</h3>
+            </div>
+            <p>
+              High‑touch, emotionally intelligent planning for engagements, weddings,
+              sangeet, mehendi and reception functions with a single accountable team
+              managing every micro‑detail.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Venue curation &amp; contracting</span>
+              <span class="chip">Décor &amp; thematic styling</span>
+              <span class="chip">Hospitality &amp; guest management</span>
+              <span class="chip">Artist &amp; entertainment</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card-title-row">
+              <h3>Birthday &amp; Milestone Celebrations</h3>
+            </div>
+            <p>
+              Concept‑driven birthday and anniversary celebrations for all age groups,
+              built around personalised storytelling, thoughtful experiences and
+              seamless coordination.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Themed décor &amp; production</span>
+              <span class="chip">Curated experiences &amp; games</span>
+              <span class="chip">Photo &amp; video coverage</span>
+              <span class="chip">End‑to‑end logistics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <div class="card-title-row">
+              <h3>Occasions, Festivals &amp; Corporate Mandates</h3>
+            </div>
+            <p>
+              Professionally governed event management for festive celebrations, brand
+              activations, internal employee events and stakeholder engagements.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Festival décor roll‑outs</span>
+              <span class="chip">Stage &amp; AV management</span>
+              <span class="chip">Corporate offsites &amp; meets</span>
+              <span class="chip">End‑to‑end production control</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT / LEADERSHIP -->
+    <section id="about">
+      <div class="section-header">
+        <div>
+          <h2>About THE EVENT HUB</h2>
+          <p>
+            An owner‑led event management practice focused on reliable execution,
+            transparent communication and long‑term relationships.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-layout">
+        <div>
+          <p>
+            THE EVENT HUB operates as a specialised event management partner for
+            individuals, families and organisations who value meticulous planning and
+            disciplined execution. Every mandate is personally overseen to ensure that
+            creative intent, budget governance and on‑ground delivery remain fully
+            aligned.
+          </p>
+          <p>
+            We collaborate with a curated network of venues, vendors and creative
+            partners, enabling us to assemble the right ecosystem for each unique
+            celebration &mdash; whether it is an intimate family ritual or a
+            large‑format corporate or festive deployment.
+          </p>
+          <p>
+            Our commitment is simple: one accountable owner, one central point of
+            contact, and one integrated team safeguarding your event from first
+            conversation to final guest departure.
+          </p>
         </div>
 
-        <div class="row autocomplete">
-          <label for="city">City / Pincode<span class="req">*</span></label>
-          <input id="city" name="city" type="text" required placeholder="Type city name or pincode" autocomplete="off" />
-          <ul id="citySuggestions" class="suggestions" aria-hidden="true"></ul>
+        <aside class="profile-card" aria-label="Founder Profile">
+          <div class="profile-header">
+            <div class="avatar">MT</div>
+            <div>
+              <h3>Manish&nbsp;Tiwari</h3>
+              <div class="profile-meta">
+                <strong>Founder &amp; Chief Executive Officer</strong><br />
+                Principal Owner, THE EVENT HUB
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-grid">
+            <div>
+              <div class="contact-item-label">Primary Contact Number</div>
+              <a href="tel:+917724965509">+91&nbsp;77249&nbsp;65509</a>
+            </div>
+            <div>
+              <div class="contact-item-label">WhatsApp Business</div>
+              <a href="https://wa.me/917724965509" target="_blank" rel="noopener noreferrer">
+                Chat on WhatsApp
+              </a>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <a href="mailto:manishtiwari9685@gmail.com">
+                manishtiwari9685@gmail.com
+              </a>
+            </div>
+            <div>
+              <div class="contact-item-label">Instagram (Managed By)</div>
+              <a href="https://instagram.com/Being_Hindu_Manish_Tiwari" target="_blank" rel="noopener noreferrer">
+                @Being_Hindu_Manish_Tiwari
+              </a>
+            </div>
+            <div>
+              <div class="contact-item-label">Twitter / X</div>
+              <a href="https://x.com/search?q=Manish_Tiwari_9685" target="_blank" rel="noopener noreferrer">
+                Follow on X &mdash; Manish_Tiwari_9685
+              </a>
+            </div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <a href="https://www.linkedin.com/in/Manish_Tiwari_9685" target="_blank" rel="noopener noreferrer">
+                Connect &mdash; Manish_Tiwari_9685
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ENQUIRY FORM -->
+    <section id="enquiry">
+      <div class="section-header">
+        <div>
+          <h2>Partner With THE EVENT HUB</h2>
+          <p>
+            Share your event requirements and we will respond with a structured
+            proposal and availability check.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-layout">
+        <div class="form-shell">
+          <div class="form-shell-inner">
+            <form id="eventForm">
+              <div class="form-group">
+                <label class="form-label" for="purpose">
+                  I am contacting THE EVENT HUB for
+                </label>
+                <select id="purpose" name="purpose" class="form-control" required>
+                  <option value="">Select primary purpose</option>
+                  <option value="event_enquiry">Planning an upcoming event</option>
+                  <option value="career_enquiry">Career / collaboration opportunity</option>
+                  <option value="vendor_partnership">Vendor or venue partnership</option>
+                  <option value="other">Other professional interaction</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" class="form-control" type="text"
+                       placeholder="Enter your full name" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input id="email" name="email" class="form-control" type="email"
+                       placeholder="name@organisation.com" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">Contact Number</label>
+                <input id="phone" name="phone" class="form-control" type="tel"
+                       placeholder="+91‑XXXXXXXXXX" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="eventType">
+                  Type of Event / Career Track
+                </label>
+                <input id="eventType" name="eventType" class="form-control" type="text"
+                       placeholder="e.g. Wedding, Birthday, Festival, Corporate, Internship, Full‑time" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="eventDate">
+                  Preferred Event Date (if applicable)
+                </label>
+                <input id="eventDate" name="eventDate" class="form-control" type="date" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="city">
+                  City / Preferred Location
+                </label>
+                <input id="city" name="city" class="form-control" type="text"
+                       placeholder="City and state" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="budget">
+                  Indicative Budget Range (Optional)
+                </label>
+                <input id="budget" name="budget" class="form-control" type="text"
+                       placeholder="e.g. ₹5–7 Lakhs, ₹10–15 Lakhs, as per brief" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">
+                  Brief Overview of Your Requirement
+                </label>
+                <textarea id="message" name="message" class="form-control"
+                          placeholder="Share key details about the event or career opportunity so that we can respond precisely."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--pill" id="submitButton">
+                Submit To THE EVENT HUB
+              </button>
+
+              <div id="formStatus" aria-live="polite" style="margin-top:8px;"></div>
+            </form>
+          </div>
         </div>
 
-        <div class="row">
-          <label for="eventType">Type of Event<span class="req">*</span></label>
-          <select id="eventType" name="eventType" required>
-            <option value="">-- Select --</option>
-            <option>Wedding</option>
-            <option>Birthday</option>
-            <option>Festival</option>
-            <option>Corporate</option>
-            <option>Others</option>
-          </select>
+        <div>
+          <h3 id="careers">Careers &amp; Professional Opportunities</h3>
+          <p>
+            We welcome driven professionals, partners and collaborators who are
+            passionate about structured event management, hospitality and
+            experience design.
+          </p>
+          <ul style="padding-left: 18px; margin-top: 4px; font-size: 13px; color: var(--color-text-secondary);">
+            <li>Event operations &amp; on‑ground co‑ordination</li>
+            <li>Design, décor &amp; technical production specialists</li>
+            <li>Client servicing, hospitality &amp; guest relations</li>
+            <li>Content, photography &amp; digital storytelling</li>
+          </ul>
+          <p style="font-size:13px; color:var(--color-text-secondary);">
+            To be considered for career opportunities, please select
+            <strong>&ldquo;Career / collaboration opportunity&rdquo;</strong> in the
+            form and attach a concise summary of your profile in the message box.
+          </p>
         </div>
-
-        <div class="row" id="otherEventRow" style="display:none;">
-          <label for="otherEvent">Please specify</label>
-          <input id="otherEvent" name="otherEvent" type="text" placeholder="Describe your enquiry" />
-        </div>
-
-        <div class="row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Tell us a little about your requirement (optional)"></textarea>
-        </div>
-
-        <div class="row">
-          <button id="submitBtn" type="submit" class="btn">Send Enquiry</button>
-        </div>
-
-        <div id="formStatus" class="form-status" aria-live="polite"></div>
-      </form>
+      </div>
     </section>
   </main>
 
-  <script src="assets/js/form.js" defer></script>
+  <footer class="site-footer">
+    <div class="footer-top">
+      <span>&copy; <span id="yearSpan"></span> THE EVENT HUB. All rights reserved.</span>
+      <span>Owner‑led | Detail‑oriented | Outcome‑driven</span>
+    </div>
+    <div style="font-size:11px;">
+      Note: Form submissions from this website are designed to be captured securely in
+      a Google Sheet via an Apps Script‑powered web app endpoint. Please configure the
+      endpoint URL and script as per your Google Workspace environment.
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const yearSpan = document.getElementById('yearSpan');
+      yearSpan.textContent = new Date().getFullYear().toString();
+
+      const form = document.getElementById('eventForm');
+      const statusEl = document.getElementById('formStatus');
+      const submitBtn = document.getElementById('submitButton');
+
+      // TODO: Replace this placeholder with your deployed Google Apps Script web app URL.
+      // Example: const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx.../exec';
+      const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby527xYCYsLBCmGY-gsQQ8o9F2-asdoiZARqHK-zuoAJAT_N_8RegprdyZUlWbHiF_YPg/exec';
+
+      function setStatus(message, type) {
+        statusEl.innerHTML = '';
+        if (!message) return;
+        const div = document.createElement('div');
+        div.className = 'status ' + (type === 'error' ? 'status--error' : 'status--success');
+        div.textContent = message;
+        statusEl.appendChild(div);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = {
+          timestamp: new Date().toISOString(),
+          purpose: document.getElementById('purpose').value.trim(),
+          fullName: document.getElementById('fullName').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          eventType: document.getElementById('eventType').value.trim(),
+          eventDate: document.getElementById('eventDate').value,
+          city: document.getElementById('city').value.trim(),
+          budget: document.getElementById('budget').value.trim(),
+          message: document.getElementById('message').value.trim()
+        };
+
+        if (!formData.purpose || !formData.fullName || !formData.email || !formData.phone) {
+          setStatus('Please complete all required fields before submitting.', 'error');
+          return;
+        }
+
+        if (!GOOGLE_APPS_SCRIPT_URL) {
+          console.warn('No Google Apps Script URL configured. Data will be logged in the browser only.');
+          console.table(formData);
+          setStatus(
+            'Your details have been captured locally. Please connect this form to your Google Sheet endpoint to enable live data storage.',
+            'success'
+          );
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        setStatus('', 'success');
+
+        fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+          .then(function () {
+            setStatus(
+              'Thank you. Your details have been submitted to THE EVENT HUB. We will connect with you shortly.',
+              'success'
+            );
+            form.reset();
+          })
+          .catch(function () {
+            setStatus(
+              'We could not confirm submission at the moment. Please try again or contact us directly on WhatsApp.',
+              'error'
+            );
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit To THE EVENT HUB';
+          });
+      });
+    })();
+  </script>
 </body>
 </html>
+
+
