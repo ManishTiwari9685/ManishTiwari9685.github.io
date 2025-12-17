@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Enquiry — THE EVENT HUB</title>
+  <title>Event Management & Enquiry Form</title>
   <style>
     /* Minimal styling for a small standalone form */
-    :root{--bg:#f7f7f8;--card:#ffffff;--accent:#21808d;--muted:#6b6f73}
+    :root{--bg:#f5f5f5;--card:#ffffff;--accent:#2563eb;--muted:#6b6f73}
     html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:#111}
     .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px}
     .card{width:100%;max-width:520px;background:var(--card);border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,0.06);padding:20px}
-    h1{margin:0 0 8px;font-size:18px}
+    h1{margin:0 0 8px;font-size:24px;font-weight:600}
     p.lead{margin:0 0 16px;color:var(--muted);font-size:13px}
     label{display:block;font-size:13px;margin:10px 0 6px}
     input[type=text],input[type=email],textarea,select,input[type=tel]{width:100%;padding:10px 12px;border:1px solid #e3e5e7;border-radius:8px;font-size:14px}
@@ -18,7 +18,7 @@
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .full{grid-column:1/-1}
     .actions{display:flex;gap:8px;margin-top:14px}
-    button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+    button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,0.25);transition:all 0.2s ease}
     .btn-muted{background:#f2f2f2;color:#111}
     .status{margin-top:12px;padding:10px;border-radius:8px;font-size:13px}
     .status.success{background:rgba(33,128,141,0.08);color:var(--accent);border:1px solid rgba(33,128,141,0.12)}
@@ -30,8 +30,8 @@
 <body>
   <div class="wrap">
     <main class="card" role="main">
-      <h1>Quick Enquiry</h1>
-      <p class="lead">Share a few details and we'll add them to your Google Sheet.</p>
+      <h1>Get Event Details</h1>
+      <p class="lead">Provide your event information and we will securely store it in our database and we'll add them to your Google Sheet.</p>
 
       <form id="enquiryForm" autocomplete="on">
         <div class="row">
