@@ -99,7 +99,7 @@
 
   <script>
     // Configure this to your deployed Google Apps Script web app URL
-    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2POvKB3E5XRHA0aMwq3pwXTtjnDOEnMhuzBFdSQNyK0CVV0Vzg60xheiek5zolD2H7Q/exec'; // e.g. 'https://script.google.com/macros/s/XXXXX/exec'
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzYSdmCWJupxqdMt-qOBPmRTRLjZOsQFs1sjer1Xy1OXlXrJAlj11WvJmYPAhNvOBsEmA/exec'; // e.g. 'https://script.google.com/macros/s/XXXXX/exec'
 
     const form = document.getElementById('enquiryForm');
     const statusEl = document.getElementById('status');
@@ -139,53 +139,62 @@
 
       submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; setStatus('', '');
 
-      // Handle CORS issues with Google Apps Script
+      // Simplified approach - try direct POST first
+      console.log('Submitting data:', data);
+      
+      submitBtn.disabled = true; 
+      submitBtn.textContent = 'Sending...'; 
+      setStatus('', '');
+
       fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
-        mode: 'cors', // Try CORS first
-        headers: { 
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
       .then(response => {
-        console.log('Response status:', response.status);
-        console.log('Response headers:', [...response.headers.entries()]);
+        console.log('Response received:', response.status, response.statusText);
         
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
-        return response.text(); // Get as text first to handle potential parsing issues
+        
+        return response.text();
       })
       .then(text => {
-        console.log('Raw response:', text);
+        console.log('Response text:', text);
+        
         try {
           const result = JSON.parse(text);
-          console.log('Parsed response:', result);
+          console.log('Parsed result:', result);
           
           if (result.result === 'success') {
-            setStatus('Submitted — thank you. We will contact you soon.', 'success');
+            setStatus('✅ Success! Data added to Google Sheet.', 'success');
             form.reset();
           } else {
-            throw new Error(result.message || 'Server returned error');
+            setStatus(`❌ Error: ${result.message}`, 'error');
           }
         } catch (parseError) {
-          console.log('JSON parse failed, treating as success if response contains success indicators');
-          if (text.includes('success') || text.includes('Success')) {
-            setStatus('Submitted — thank you. We will contact you soon.', 'success');
+          console.error('Parse error:', parseError);
+          console.log('Raw response was:', text);
+          
+          // Check if it looks like HTML (permission/auth error)
+          if (text.includes('<html') || text.includes('<script')) {
+            setStatus('❌ Authentication Error: Check Apps Script deployment permissions.', 'error');
+          } else if (text.includes('success') || text.toLowerCase().includes('thank')) {
+            setStatus('✅ Likely successful (check your Google Sheet)', 'success');
             form.reset();
           } else {
-            throw new Error(`Invalid response format: ${text.substring(0, 100)}`);
+            setStatus(`❌ Unexpected response: ${text.substring(0, 100)}`, 'error');
           }
         }
       })
-      .catch((err) => {
-        console.error('Submission error:', err);
+      .catch(error => {
+        console.error('Fetch error:', error);
         
-        // If it's a CORS error, try with no-cors mode as fallback
-        if (err.message.includes('Failed to fetch') || err.message.includes('CORS')) {
-          console.log('CORS failed, trying no-cors mode...');
+        if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
+          console.log('CORS error detected, trying no-cors fallback...');
           
+          // Fallback to no-cors mode
           fetch(GOOGLE_APPS_SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -193,29 +202,30 @@
             body: JSON.stringify(data)
           })
           .then(() => {
-            console.log('Fallback submission completed (no response available in no-cors mode)');
-            setStatus('Submitted via fallback method. If you don\'t see data in your sheet, check Apps Script logs.', 'success');
+            setStatus('⚠️ Submitted via fallback. Check Google Sheet and Apps Script logs.', 'success');
             form.reset();
           })
-          .catch((fallbackErr) => {
-            console.error('Fallback also failed:', fallbackErr);
-            setStatus(`Submission failed: ${err.message}. Check your Apps Script deployment and permissions.`, 'error');
+          .catch(fallbackError => {
+            console.error('Fallback error:', fallbackError);
+            setStatus('❌ All submission methods failed. Check deployment.', 'error');
           })
           .finally(() => {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Send';
           });
         } else {
-          setStatus(`Submission failed: ${err.message}. Try again or contact directly.`, 'error');
+          setStatus(`❌ Network error: ${error.message}`, 'error');
           submitBtn.disabled = false;
           submitBtn.textContent = 'Send';
         }
       })
       .finally(() => {
-        // Only run if not handled in CORS fallback
-        if (!submitBtn.disabled) return;
-        submitBtn.disabled = false; 
-        submitBtn.textContent = 'Send'; 
+        // Only reset if not handled in fallback
+        if (!submitBtn.disabled) {
+          return;
+        }
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
       });
     });
   </script>
