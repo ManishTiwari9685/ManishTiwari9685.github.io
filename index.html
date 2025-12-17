@@ -47,18 +47,47 @@
 
         <div class="row">
           <div>
-            <label for="mobile">Mobile *</label>
+            <label for="mobile">Phone *</label>
             <input id="mobile" name="mobile" type="tel" required pattern="[6-9][0-9]{9}" placeholder="10-digit mobile">
           </div>
           <div>
-            <label for="eventType">Event type</label>
+            <label for="purpose">Purpose *</label>
+            <select id="purpose" name="purpose" required>
+              <option value="">— select —</option>
+              <option>Wedding</option>
+              <option>Birthday</option>
+              <option>Corporate Event</option>
+              <option>Festival</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="eventDate">Event Date</label>
+            <input id="eventDate" name="eventDate" type="date">
+          </div>
+          <div>
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" placeholder="Your city">
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="budget">Budget (optional)</label>
+            <input id="budget" name="budget" type="text" placeholder="e.g., 50,000 - 1,00,000">
+          </div>
+          <div>
+            <label for="eventType">Event Type (optional)</label>
             <select id="eventType" name="eventType">
               <option value="">— select —</option>
-              <option>wedding</option>
-              <option>birthday</option>
-              <option>corporate</option>
-              <option>festival</option>
-              <option>other</option>
+              <option>Wedding</option>
+              <option>Birthday</option>
+              <option>Corporate</option>
+              <option>Festival</option>
+              <option>Other</option>
             </select>
           </div>
         </div>
@@ -100,14 +129,18 @@
       e.preventDefault();
       const data = {
         timestamp: new Date().toISOString(),
+        purpose: form.purpose.value || '',
         name: form.name.value.trim(),
         email: form.email.value.trim(),
         mobile: form.mobile.value.trim(),
         eventType: form.eventType.value || '',
+        eventDate: form.eventDate.value || '',
+        city: form.city.value.trim(),
+        budget: form.budget.value.trim(),
         message: form.message.value.trim()
       };
 
-      if(!data.name || !data.email || !data.mobile){ setStatus('Please fill required fields.', 'error'); return; }
+      if(!data.name || !data.email || !data.mobile){ setStatus('Please fill all required fields.', 'error'); return; }
 
       if(!GOOGLE_APPS_SCRIPT_URL){
         console.log('Payload (no endpoint set):', data);
