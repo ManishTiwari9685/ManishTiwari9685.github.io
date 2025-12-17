@@ -50,17 +50,6 @@
             <label for="mobile">Phone *</label>
             <input id="mobile" name="mobile" type="tel" required pattern="[6-9][0-9]{9}" placeholder="10-digit mobile">
           </div>
-          <div>
-            <label for="purpose">Purpose *</label>
-            <select id="purpose" name="purpose" required>
-              <option value="">— select —</option>
-              <option>Wedding</option>
-              <option>Birthday</option>
-              <option>Corporate Event</option>
-              <option>Festival</option>
-              <option>Other</option>
-            </select>
-          </div>
         </div>
 
         <div class="row">
@@ -129,7 +118,6 @@
       e.preventDefault();
       const data = {
         timestamp: new Date().toISOString(),
-        purpose: form.purpose.value || '',
         name: form.name.value.trim(),
         email: form.email.value.trim(),
         mobile: form.mobile.value.trim(),
