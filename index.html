@@ -139,22 +139,35 @@
 
       submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; setStatus('', '');
 
-      // Using mode:'no-cors' is often necessary for Apps Script endpoints if CORS isn't configured.
+      // Improved fetch with proper error handling
       fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
-      .then(()=>{
-        setStatus('Submitted — thank you. We will contact you soon.', 'success');
-        form.reset();
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
       })
-      .catch((err)=>{
-        console.error(err);
-        setStatus('Submission failed. Try again or contact directly.', 'error');
+      .then(result => {
+        console.log('Server response:', result);
+        if (result.result === 'success') {
+          setStatus('Submitted — thank you. We will contact you soon.', 'success');
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
       })
-      .finally(()=>{ submitBtn.disabled = false; submitBtn.textContent = 'Send'; });
+      .catch((err) => {
+        console.error('Submission error:', err);
+        setStatus(`Submission failed: ${err.message}. Try again or contact directly.`, 'error');
+      })
+      .finally(() => { 
+        submitBtn.disabled = false; 
+        submitBtn.textContent = 'Send'; 
+      });
     });
   </script>
 </body>
