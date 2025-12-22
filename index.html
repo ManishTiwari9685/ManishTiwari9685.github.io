@@ -1442,72 +1442,39 @@ const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz1meQeE
     }
 
     // Submit handler
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const payload = {
-        timestamp: new Date().toISOString(),
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        mobile: document.getElementById('mobile').value.trim(),
-        pincode: document.getElementById('pincode').value.trim(),
-        city: document.getElementById('city').value.trim(),
-        eventType: document.getElementById('eventType').value,
-        otherEvent: otherEventInput.value.trim(),
-        message: document.getElementById('message').value.trim()
-      };
-
-      if (!payload.name || !payload.email || !payload.mobile || !payload.city || !payload.pincode || !payload.eventType) {
-        setStatus('Please complete all required fields before submitting.', 'error');
-        return;
-      }
-      if (payload.eventType === 'others' && !payload.otherEvent) {
-        setStatus('Please describe your event under "Others".', 'error');
-        return;
-      }
-
-      if (!GOOGLE_APPS_SCRIPT_URL) {
-        console.table(payload);
-        setStatus(
-          'Your details have been captured locally. Please connect this form to your Google Sheet endpoint to enable live data storage.',
-          'success'
-        );
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-      setStatus('', 'success');
-
-      fetch(GOOGLE_APPS_SCRIPT_URL, {
+    form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    const formData = new FormData(form);
+    
+    try {
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-        .then(function () {
-          setStatus(
-            'Thank you. Your details have been submitted to THE EVENT HUB. We will connect with you shortly.',
-            'success'
-          );
-          form.reset();
-          cityInput.readOnly = true;
-          cityInput.placeholder = "City will be auto‑filled from PIN";
-          otherEventWrapper.style.display = "none";
-        })
-        .catch(function () {
-          setStatus(
-            'We could not confirm submission at the moment. Please try again or contact us directly on WhatsApp.',
-            'error'
-          );
-        })
-        .finally(function () {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Enquiry';
-        });
-    });
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (data.result === 'success') {
+        setStatus('✅ Thank you! Your details have been submitted to THE EVENT HUB. We will connect with you shortly.', 'success');
+        form.reset();
+        cityInput.readOnly = true;
+        cityInput.placeholder = "City will be auto-filled from PIN";
+        otherEventWrapper.style.display = "none";
+      } else {
+        setStatus('❌ Error submitting. Please try again.', 'error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('❌ Network error. Please try again or contact us on WhatsApp.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Enquiry';
+    }
+  });
   </script>
 </body>
 </html>
