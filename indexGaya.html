@@ -94,16 +94,20 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       
-      const payload = {
-        timestamp: new Date().toISOString(),
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        mobile: document.getElementById('mobile').value.trim(),
-        pincode: document.getElementById('pincode').value.trim(),
-        city: document.getElementById('city').value.trim(),
-        eventType: document.getElementById('eventType').value,
-        otherEvent: otherEventInput.value.trim(),
-        message: document.getElementById('message').value.trim()
+     const payload = {
+    timestamp: new Date().toISOString(),
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    mobile: document.getElementById('mobile').value.trim(),
+    eventDate: document.getElementById('eventDate') ? document.getElementById('eventDate').value : '',
+    budget: document.getElementById('budget') ? document.getElementById('budget').value : '',
+    pincode: document.getElementById('pincode').value.trim(),
+    city: document.getElementById('city').value.trim(),
+    eventType: document.getElementById('eventType').value,
+    otherEvent: otherEventInput.value.trim(),
+    message: document.getElementById('message').value.trim()
+};
+
       };
       
       if (!payload.name || !payload.email || !payload.mobile || !payload.city || !payload.pincode || !payload.eventType) {
